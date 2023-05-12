@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <title>Electron Auto Update Example</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="index.js"></script>
+</head>
+<body>
+  <h1>Electron Auto Update Example</h1>
+  <p id="version"></p>
+  <div id="notification" class="hidden">
+    <p id="message"></p>
+    <button id="close-button" onClick="closeNotification()">
+      Close
+    </button>
+    <button id="restart-button" onClick="restartApp()" class="hidden">
+      Restart
+    </button>
+  </div>
+  
+  
+</body>
