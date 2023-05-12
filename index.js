@@ -4,23 +4,23 @@ document.addEventListener("DOMContentLoaded", function () {
   electron.on("app_version", (arg) => {
     version.innerText = "Version " + arg.version;
   });
-});
+  const notification = document.getElementById('notification');
+  const message = document.getElementById('message');
+  const restartButton = document.getElementById('restart-button');
 
-const notification = document.getElementById('notification');
-const message = document.getElementById('message');
-const restartButton = document.getElementById('restart-button');
+  electron.on('update_available', () => {
+    electron.removeAllListeners('update_available');
+    message.innerText = 'A new update is available. Downloading now...';
+    notification.classList.remove('hidden');
+  });
 
-electron.on('update_available', () => {
-  electron.removeAllListeners('update_available');
-  message.innerText = 'A new update is available. Downloading now...';
-  notification.classList.remove('hidden');
-});
+  electron.on('update_downloaded', () => {
+    electron.removeAllListeners('update_downloaded');
+    message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
+    restartButton.classList.remove('hidden');
+    notification.classList.remove('hidden');
+  });
 
-electron.on('update_downloaded', () => {
-  electron.removeAllListeners('update_downloaded');
-  message.innerText = 'Update Downloaded. It will be installed on restart. Restart now?';
-  restartButton.classList.remove('hidden');
-  notification.classList.remove('hidden');
 });
 
 function closeNotification() {
@@ -29,3 +29,4 @@ function closeNotification() {
 function restartApp() {
   electron.send('restart_app');
 }
+

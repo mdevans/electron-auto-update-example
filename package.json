@@ -1,6 +1,6 @@
 {
   "name": "electron-auto-update-example",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Electron app with electron-builder and electron-updater",
   "main": "main.js",
   "scripts": {
@@ -14,8 +14,8 @@
   "author": "Michael Evans",
   "license": "MIT",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/mdevans/electron-auto-update-example.git"
+    "type": "git",
+    "url": "https://github.com/mdevans/electron-auto-update-example.git"
   },
   "devDependencies": {
     "electron": "^24.3.0",
