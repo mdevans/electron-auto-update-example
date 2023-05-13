@@ -1,12 +1,15 @@
 {
   "name": "electron-auto-update-example",
-  "version": "1.0.4",
+  "version": "1.0.9",
   "description": "Electron app with electron-builder and electron-updater",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "deploy": "electron-builder build --mac --win --publish always"
+    "deploy": "electron-builder build --mac --x64 --arm64 --win --publish always",
+    "build-mac": "electron-builder build --mac",
+    "build-win": "electron-builder build --win",
+    "build-linux": "electron-builder build --linux"
   },
   "keywords": [
     "electron"

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
@@ -7,18 +8,19 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="index.js"></script>
 </head>
+
 <body>
   <h1>Electron Auto Update Example</h1>
   <p id="version"></p>
   <div id="notification" class="hidden">
     <p id="message"></p>
-    <button id="close-button" onClick="closeNotification()">
+    <button id="close-button">
       Close
     </button>
-    <button id="restart-button" onClick="restartApp()" class="hidden">
+    <button id="restart-button" class="hidden">
       Restart
     </button>
   </div>
-  
-  
+
+
 </body>

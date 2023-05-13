@@ -1,12 +1,22 @@
 document.addEventListener("DOMContentLoaded", function () {
   const version = document.getElementById("version");
+  const notification = document.getElementById('notification');
+  const message = document.getElementById('message');
+  const restartButton = document.getElementById('restart-button');
+  const closeButton = document.getElementById('close-button');
+
+  if (restartButton) {
+    restartButton.addEventListener('click', restartApp);
+  }
+
+  if (closeButton) {
+    closeButton.addEventListener('click', closeNotification);
+  }
+
   electron.send("app_version");
   electron.on("app_version", (arg) => {
     version.innerText = "Version " + arg.version;
   });
-  const notification = document.getElementById('notification');
-  const message = document.getElementById('message');
-  const restartButton = document.getElementById('restart-button');
 
   electron.on('update_available', () => {
     electron.removeAllListeners('update_available');
@@ -21,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     notification.classList.remove('hidden');
   });
 
-});
+}); //DOMContentLoaded event listener
 
 function closeNotification() {
   notification.classList.add('hidden');
